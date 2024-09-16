@@ -10,13 +10,15 @@
         }
 
         body {
+            min-height: 100vh;
             background-color: #181818;
             color: white;
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
-        header, nav, main {
+        header, main {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -26,22 +28,88 @@
             padding: 20px;
         }
         nav {
-            display: flex;
-            justify-content: space-around;
-            width: 100%;
             background-color: #202020;
-            padding: 10px 0;
+            box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.1);
         }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        nav li {
+            height: 50px;
+        }
+
+        nav li:first-child {
+            margin-right: auto;
+        }
+
+        
         nav a {
             color: white;
             text-decoration: none;
+            height: 100%;
+            padding: 0 30px;
+            display: flex;
+            align-items: center;
         }
+
+        nav a:hover {
+            background-color: #5e5e5e;
+            cursor: pointer;
+        }
+
+        .sidebar {
+            display: none;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100vh;
+            width: 250px;
+            z-index: 999;
+            background-color: #20202051;
+            backdrop-filter: blur(10px);
+            box-shadow: 10px 0 10px rgba(0, 0, 0, 0.1);
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+        
+        .sidebar li {
+            width: 100%;
+        }
+        
+        .sidebar a{
+            width: 100%;
+        }
+
+        /*The header word Anisama should not glow when hovered*/
+        nav li:first-child a:hover {
+            background-color: #202020;
+        }
+
+        /*Though the close icon should glow*/
+        .sidebar li:first-child a:hover {
+            background-color: #5e5e5e;
+        }
+        
         .video {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: left;
             margin-bottom: 20px;
+            margin-right: 180px;
+            background-color: #3d3d3d;
+            padding-right: 0;
         }
+
+        .video:hover {
+            background-color: #5e5e5e;
+        }
+
         .video img {
             width: 100%;
             max-width: 600px;
@@ -52,6 +120,32 @@
                 align-items:horizontal;
             }
         }
+
+        .vid {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            margin-bottom: 20px;
+            margin-left: 190px;
+            background-color: #3d3d3d;
+            padding-right: 0;
+        }
+
+        .vid:hover {
+            background-color: #5e5e5e;
+        }
+
+        .vid img {
+            width: 100%;
+            max-width: 600px;
+        }
+        .vid h3 {
+            margin: 10px 0;
+            .feet {
+                align-items:horizontal;
+            }
+        }
+
         .img5 {
             display: block;
             margin-left: 50%;
@@ -71,6 +165,21 @@
           width: 100%; 
           aspect-ratio: 16/2.69;
         }
+
+        .row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        }
+
+        .column {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 100%;
+        flex: 1;
+        margin: 0 50px;
+        }
     </style>
 </head>
 <body>
@@ -78,47 +187,71 @@
         <h1>ANI SAMA</h1>
     </header>
     
+    <nav>
+        <ul class="sidebar" id="sidebar">
+            
+            <li><a href="#" onclick="document.getElementById('sidebar').style.display='none'"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Anime List</a></li>
+            <li><a href="#">Latest Releases</a></li>
+            <li><a href="#">Genre</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Reviews</a></li>
+            <li><a href="#">Community</a></li>
+        </ul>
+        <ul>
+            <li><a href="index.html">AniSama</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Anime List</a></li>
+            <li><a href="#">Latest Releases</a></li>
+            <li><a href="#">Genre</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Community</a></li>
+            <li><a href="#" onclick="document.getElementById('sidebar').style.display='flex'"><svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960" width="26px" fill="#e8eaed"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+        </ul>  
+    </nav>
+
     <div class="div24">
         
         <a href="comingsoon.html"><img class="img5" src="https://animeheaven.me/image.php?323g0" alt="image"></a>
         <a href="comingsoon.html"><p class="comingSoon">Coming Soon</p></a>
     </div>
-    
 
-    <nav>
-        <a href="Anisama.html">Home</a>
-        <a href="#">Videos</a>
-        <a href="#">Playlists</a>
-        <a href="#">Community</a>
-    </nav>
     <main>
-        <section class="video">
-          <a href="dmsep.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9xTYhj3gtpxizay6NSBtpWTgfWM-uZ9VJOg&usqp=CAU" alt="Demon Slayer: Kimetsu no Yaiba"></a>
-          <a href="dmsep.html"><h3>DEMON SLAYER: KIMETSU NO YAIBA</h3></a>
-          <a href="dmsep.html"><p>221 views &middot; 1 year ago</p></a>
-        </section>
-         <hr>
-        <section class="video">
-            <a href="aotep.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa5cAAvqGg9SIGhejX08onjf_YXIte09Zxg-hfebaDOmhZ5Q2tTfGZgck&s=10" alt="Attack on Titan"></a>
-            <a href="aotep.html"><h3>ATTACK ON TITAN</h3></a>
-            <a href="aotep.html"><p>999 views &middot; 13 days ago</p></a>
-        </section>
-        <hr>
-        <section class="video">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREp0kWZ9eSO6KlLs-vCQyxvEh3DeqqC7ORY5QySog81I4Gww3VT0EHabw&s=10" alt="ONE PIECE">
-            <h3>ONE PIECE (Not Viewable at the Moment)</h3>
-            <p>368 views &middot; 1 month ago</p>
-        </section>
-        <section class="video">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJnsSgPnSoEzDxL48grfoLpoOaE1Sibl6EoFvhwU0_KRoeXALS4V9rvBqL&s=10" alt="JUJUTSU KAISEN">
-            <h3>JUJUTSU KAISEN (Not Viewable at the Moment)</h3>
-            <p>299 views &middot; 10 months ago</p>
-        </section>
-        <section class="video">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoT6R-iW-Mdk6DSYnoo5ACTPokJU8X0RI6xY_9XaZGIPGRcRPaQ5DNJvY&s=10" alt="MY HERO ACADEMIA">
-            <h3>MY HERO ACADEMIA (Not Viewable at the Moment)</h3>
-            <p>643 views &middot; 1 year ago</p>
-        </section>
+        <div class="row">
+            <div class="column">
+                <section class="video">
+                  <a href="dmsep.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9xTYhj3gtpxizay6NSBtpWTgfWM-uZ9VJOg&usqp=CAU" alt="Demon Slayer: Kimetsu no Yaiba"></a>
+                  <a href="dmsep.html"><h3>DEMON SLAYER: KIMETSU NO YAIBA</h3></a>
+                  <a href="dmsep.html"><p>221 views &middot; 1 year ago</p></a>
+                </section>
+                 <hr>
+                <section class="video">
+                    <a href="aotep.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa5cAAvqGg9SIGhejX08onjf_YXIte09Zxg-hfebaDOmhZ5Q2tTfGZgck&s=10" alt="Attack on Titan"></a>
+                    <a href="aotep.html"><h3>ATTACK ON TITAN</h3></a>
+                    <a href="aotep.html"><p>999 views &middot; 13 days ago</p></a>
+                </section>
+                <hr>
+                <section class="video">
+                    <a href="onpep.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREp0kWZ9eSO6KlLs-vCQyxvEh3DeqqC7ORY5QySog81I4Gww3VT0EHabw&s=10" alt="ONE PIECE"></a>
+                    <a href="onpep.html"><h3>ONE PIECE (Not Viewable at the Moment)</h3></a>
+                    <a href="onpep.html"><p>368 views &middot; 1 month ago</p></a>
+                </section>
+            </div>
+            <div class="column">
+                <section class="vid">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJnsSgPnSoEzDxL48grfoLpoOaE1Sibl6EoFvhwU0_KRoeXALS4V9rvBqL&s=10" alt="JUJUTSU KAISEN">
+                    <h3>JUJUTSU KAISEN (Not Viewable at the Moment)</h3>
+                    <p>299 views &middot; 10 months ago</p>
+                </section>
+                <section class="vid">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoT6R-iW-Mdk6DSYnoo5ACTPokJU8X0RI6xY_9XaZGIPGRcRPaQ5DNJvY&s=10" alt="MY HERO ACADEMIA">
+                    <h3>MY HERO ACADEMIA (Not Viewable at the Moment)</h3>
+                    <p>643 views &middot; 1 year ago</p>
+                </section>
+            </div>
+        </div>
+
     </main>
     <hr>
     <footer>
